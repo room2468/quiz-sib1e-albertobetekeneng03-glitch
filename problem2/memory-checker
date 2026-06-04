@@ -1,8 +1,11 @@
-read -r total
-read -r used
+#!/bin/env bash
 
-free=$((total - used))
-usage=$((used * 100 / total))
+read -r total_mb
+read -r used_mb
+
+free_mb=$(( total_mb - used_mb ))
+
+usage=$(( used_mb * 100 / total_mb ))
 
 if (( usage >= 90 )); then
     status="Critical"
@@ -12,6 +15,6 @@ else
     status="Normal"
 fi
 
-echo "Free: $free MB"
+echo "Free: $free_mb MB"
 echo "Usage: $usage%"
 echo "Status: $status"
