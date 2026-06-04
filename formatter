@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+read -r first_name last_name
+
+last_upper="${last_name^^}"
+first_title="${first_name,,}"
+first_title="${first_title^}"
+
+echo "$last_upper, $first_title"
